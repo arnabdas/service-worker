@@ -1,6 +1,14 @@
 (function () {
     'use strict';
 
+    $(document).ready(function(){
+        $('#pushMsgId').click(function(){
+            if (navigator.serviceWorker.controller.postMessage)
+            navigator.serviceWorker.controller.postMessage({
+                message: 'Hello, World!!!'
+            });
+        });
+    });
 
 }());
 
