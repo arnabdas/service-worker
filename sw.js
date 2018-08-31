@@ -1,7 +1,7 @@
 var CACHE_NAME = 'sw-demo-cache-v1';
 var urlsToCache = [
-    '/assets/bootstrap.min.css',
-    '/assets/bootstrap.min.js'
+    './assets/bootstrap.min.css',
+    './assets/bootstrap.min.js'
 ];
 
 self.addEventListener('install', function (event) {
