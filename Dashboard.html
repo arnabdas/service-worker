@@ -1,0 +1,1016 @@
+<!-- Dashboard -->
+<link href='//fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+<style>
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+    #dashcontainer {
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 300;
+        color: #ffffff;
+    }
+
+    #dashcontainer1 {
+        float: left;
+        width: 100%;
+        background-color: #000000 !important;
+    }
+
+    #dashcontainer2 {
+        float: left;
+        width: 100%;
+        min-height: 500px;
+        background-color: #000000 !important;
+    }
+
+    body {
+        height: 100%;
+    }
+
+    #dashcontainer {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background-color: #000000 !important;
+    }
+
+    #schedValetPanel {
+        width: 100%;
+        position: relative;
+        /*overflow-y:auto;*/
+    }
+
+    #schedValetHeader {
+        width: 100%;
+    }
+
+    #unschedValetPanel {
+        width: 100%;
+        position: relative;
+        /*height:160px;*/
+        /*overflow-y:auto;*/
+    }
+
+    #unschedValetHeader {
+        width: 100%;
+        padding-top: 5px;
+    }
+
+    .valetHeadshot {
+        width: 50px;
+        height: 50px;
+        display: block;
+        -webkit-border-radius: 25px !important;
+        -moz-border-radius: 25px !important;
+        border-radius: 25px !important;
+        border: black solid 0px;
+        overflow: hidden;
+        margin:0 0 10px 0;
+    }
+
+    .valetName {
+        font-size: 18px;
+        margin-top:5px;
+    }
+
+    .valetEven {
+    }
+
+    .valetOdd {
+    }
+
+    #SchedValetsTbody tr {
+        background-color: #333333;
+    }
+
+    #UnSchedValetsTbody tr {
+        background-color: #111111;
+    }
+
+    #mapPanel {
+        width: 100%;
+        height: 200px;
+        overflow-y: auto;
+        background-color: #36e60a;
+    }
+
+    #violationsPanel {
+        width: 100%;
+        height: 100%;
+        /*overflow-y:auto;*/
+    }
+
+    #violationsHeader {
+        width: 100%;
+    }
+
+    .violationThumb {
+        width: 30px;
+        height: 30px;
+        overflow: hidden;
+    }
+
+    .violationType {
+        font-size: 18px;
+        text-align: left;
+    }
+
+    .violationProperty {
+        font-weight: 300;
+    }
+
+    .violationLocation {
+        color: #cccccc;
+    }
+
+    .violationStamp, .violationSubmittedBy {
+        position: relative;
+        float: right;
+    }
+
+    #ViolationsTbody tr {
+        /*background-color:#cccccc;*/
+        margin-top: 10px;
+    }
+
+    .violationTableTable {
+        width: 97%;
+        margin: 10px;
+    }
+
+    .violationTableCell {
+        /*width:100%;*/
+        position: relative;
+        text-align: left;
+    }
+
+    #violationsTableWrapper {
+        width: 100%;
+        height: 100%;
+        background-color: #222222;
+    }
+
+    #violationsTable {
+        width: 100%;
+    }
+
+    #propertyPanel {
+        width: 30%;
+        overflow-y: auto;
+        background-color: #3589fd;
+    }
+
+    #propertiesTable {
+        width: 100%;
+    }
+
+    #propertiesTable tr td{
+        font-size: 12px;
+        font-weight: 100;
+        padding: 5px 10px;
+        text-align: left;
+        background-color: #aaa;
+        color: #000000;
+    }
+
+    #propertiesTable tr:nth-child(even) td{
+        background-color: #ccc;
+    }
+
+    .prop {
+        display: table-row !important;
+        margin-top: 10px;
+    }
+
+        .prop td {
+            font-size: 22px !important;
+            font-weight: 100;
+            padding: 10px !important;
+            text-align: left;
+            background-color: #333333 !important;
+            color: #cccccc !important;
+        }
+
+    .shift td {
+        background-color: #aaa !important;
+    }
+
+    .propPercentage {
+        text-align: right;
+    }
+
+    #PropertyTbody tr td {
+
+        font-size: 12px;
+        font-weight: 100;
+        padding: 5px 10px;
+        text-align: left;
+        background-color: #cccccc;
+        color: #000000;
+    }
+
+    .dashPanel {
+        position: relative;
+        float: left;
+        text-align: center;
+        background-color: inherit;
+    }
+
+    .dashPanel div h3 {
+        text-align: left;
+        padding: 2px 10px;
+        font-size: 38px;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .circle {
+        width: 60px;
+        height: 60px;
+        -webkit-border-radius: 30px !important;
+        -moz-border-radius: 30px !important;
+        border-radius: 30px !important;
+        color: black;
+        font-size: 10px;
+        vertical-align: middle;
+        text-align: center;
+        display: table-cell;
+        margin-top:5px;
+    }
+
+    .notCheckedIn {
+        background: #999999;
+    }
+
+    .late {
+        /*the requirement to show late users differently was changed and this was commented out in case it changed back in the near future*/
+        /*background: #cc0000;*/
+        background: #339933;
+    }
+
+    .onTime {
+        background: #339933;
+    }
+    .notComplete {
+        background: #ffff00;
+    }
+    .notStarted {
+        background: #cccc00;
+    }
+    /*.prop .sign {float:right;}
+    .prop .sign:after{
+      content:"+";
+      display:inline-block;
+    }
+    .prop.expand .sign:after{
+      content:"-";
+    }*/
+    .red {
+        color: red !important;
+    }
+
+    .yellow {
+        color: yellow !important;
+    }
+
+    .green {
+        color: green !important;
+    }
+
+    .shiftTime {
+        text-align: center;
+    }
+    .NoData { 
+       
+        background-color: #000000;
+        font-size: 25px !important;    
+        font-weight: 300 !important;    
+        padding: 10px 5px !important;    
+    }
+    .strike { text-decoration: line-through;}
+
+    .android-device, .apple-device{
+        width: 30px;
+        height: 30px;
+        display: block;
+        margin: 5px 0 0 12px;
+    }
+
+    .android-device{
+        background-image: url('https://apps.valetwaste.com/NitroServer/iValet/ObjectStore/Stream/25430c5b-bfc2-4b30-8cdf-5640ad95693d');
+    }
+    .apple-device{
+        background-image: url('https://apps.valetwaste.com/NitroServer/iValet/ObjectStore/Stream/a7b18203-273d-478a-95f4-9bbf2d94658a');
+    }
+    .battery-level{
+        width:40px;
+        height:14px; 
+        display: block;
+        font-size: 10px;
+        text-align: center;
+        line-height: 14px;
+        margin: 0 8px 8px auto;
+    }
+    .battery-green{
+        color:#00ff30;
+        background-image: url('https://apps.valetwaste.com/NitroServer/iValet/ObjectStore/Stream/ebee4879-bdbc-4e50-b625-e191fe6e38e8');
+    }
+    .battery-yellow{
+        color: #fffc00;
+        background-image: url('https://apps.valetwaste.com/NitroServer/iValet/ObjectStore/Stream/0c64fb79-beb6-46cd-afc8-810b6d6a28c7');
+    }
+    .battery-red{
+        color:#ff0000;
+        background-image: url('https://apps.valetwaste.com/NitroServer/iValet/ObjectStore/Stream/3b1640d9-f237-40b2-8246-20a8acbb8634');
+    }
+    .device-icons{
+        margin:0;
+        padding: 0;
+        list-style:none;
+    }
+    .device-icons li{
+        float: left;
+        padding:0 5px;
+        margin-bottom:8px;
+    }
+
+    .gps-icon{
+        width: 9px;
+        height: 15px;
+        display: block;
+        background-image: url('https://apps.valetwaste.com/NitroServer/iValet/ObjectStore/Stream/501977b5-3402-42b0-ab12-9c53fda1234d');
+    }
+    .notification-icon{
+        width: 16px;
+        height: 15px;
+        display: block;
+        background-image: url('https://apps.valetwaste.com/NitroServer/iValet/ObjectStore/Stream/f61fb403-447f-4260-94dc-da77e0e1090c');
+    }
+    .camera-icon{
+        width: 20px;
+        height: 15px;
+        display: block;
+        background-image: url('https://apps.valetwaste.com/NitroServer/iValet/ObjectStore/Stream/e8f100aa-cb3b-44f9-8a7e-ef3fdadb1fe4');
+    }
+
+    .property-list{
+        margin: -10px 0 -10px -10px;
+        padding:0;
+        list-style: none;
+        width: 100%;
+    }
+
+    .property-list li{
+        display: block;
+        background-color: #aaa;
+        padding: 5px 10px;
+        margin-right:-20px;
+    }
+
+    .property-list li:nth-child(even){
+        background-color: #ccc;
+    }
+
+    .btn.red{
+        color:#fff !important;
+    }
+
+    .manager-drop-down{
+        margin-bottom: 15px;
+    }
+
+    .list, .list ul{
+        margin: 0;
+        padding:0;
+        list-style: none;
+    }
+
+    .list li{
+        font-size: 12px;
+        font-weight: 100;
+        padding: 0;
+        text-align: left;
+        color: #000000;
+    }
+
+    .list li li:nth-child(odd){
+        background-color: #ccc;
+    }
+
+    .list li li:nth-child(even){
+        background-color: #aaa;
+    }
+
+    .list li li:nth-child(odd) li:nth-child(odd){
+        background-color: #aaa;
+    }
+
+    .list li li:nth-child(odd) li:nth-child(odd) li:nth-child(odd){
+        background-color: #ccc;
+    }
+
+    .list li li:nth-child(odd) li:nth-child(even){
+        background-color: #ccc;
+    }
+
+
+    .list li li:nth-child(odd) li:nth-child(odd) li:nth-child(even){
+        background-color: #aaa;
+    }
+
+    .list-title{
+        font-size: 22px;
+        font-weight: 100;
+        padding: 10px;
+        text-align: left;
+        background-color: #333333;
+        color: #cccccc;
+    }
+
+    .list p{
+        margin: 0;
+        padding:0;
+    }
+
+    .list-title .first-col, .list-title .last-col{
+        padding:0;
+    }
+
+    .first-col{
+        width: calc(75% - 12.5px);
+        padding: 5px 0 0 10px;
+        display: inline-block;
+    }
+
+    .last-col{
+        width: calc(25% - 12.5px);
+        padding: 5px 10px 0 0;
+        display: inline-block;
+    }
+
+</style>
+
+<div ng-app="ivalet" ng-controller="ivaletController as vm" ng-cloak>
+    <div ng-if="vm.showManagerDropDown" class="manager-drop-down">
+        Select Manager: <select name="managerSelect" id="managerSelect" ng-options="manager as manager.resourceName group by manager.managerName for manager in vm.managers" ng-model="vm.managerSelected" ng-change="vm.getDashboard(vm.managerSelected)"></select>
+    </div>
+
+    <hr ng-if="vm.showManagerDropDown">
+
+    <h2 ng-if="vm.showManagerDropDown">Dashboard for: {{vm.managerSelected.resourceName}}</h2>
+
+    <div id="dashcontainer1">
+        <div id="dashcontainer2">
+            <div id="dashcontainer">
+                <div style="position:relative;float:left;width:30%;height:100%" class="dashPanel">
+                    <div id="schedValetPanel">
+                        <div id="schedValetHeader"><h3>Valets</h3></div>
+
+                        <div class="NoData" id="NoDataVal" ng-if="vm.resources.length === 0 || (vm.resources|filter:{isScheduled:true}).length === 0">
+                            <p style="text-align:left;" class="NoData">No Valets Scheduled</p>
+                        </div>
+                        <table class="table">
+                            <tbody id="SchedImages"></tbody>
+                            <tbody id="SchedValetsTbody">
+                                <tr ng-repeat="resource in vm.resources" ng-if="resource.isScheduled">
+                                    <td>
+                                        <img class="valetHeadshot" src="{{resource.resourcePhoto}}" ng-if="resource.resourcePhoto.length > 0">
+                                        <div class="circle" style="background:#808080; font-size: 20px; margin-left:0px;" ng-if="resource.resourcePhoto.length === 0">{{resource.firstName | limitTo:1}}{{resource.lastName | limitTo:1}}</div>
+                                        <span ng-class="{'apple-device': vm.isAppleDevice(resource.deviceType), 'android-device': !(vm.isAppleDevice(resource.deviceType))}"></span>
+                                        <!-- <span ng-if="resource.isCameraOn" class='camera red cursor-pointer' onclick='changeStatus("+resource.resourceId+",\"camera\")' title='Change Camera Status'>C</span>
+                                        <span ng-if="resource.isGpsOn" class='gps red cursor-pointer' onclick='changeStatus("+resource.resourceId+",\"gps\")' title='Change GPS Status'>G</span>
+                                        <span ng-if="resource.isPushOn" class='push red cursor-pointer' onclick='changeStatus("+resource.resourceId+",\"push\")' title='Change Push Status'>P</span> -->
+                                        </td>
+                                    <td>
+                                        <ul class="device-icons">
+                                            <li ng-if="!resource.isGpsOn"><span class="gps-icon"></span></li>
+                                            <li ng-if="!resource.isPushOn"><span class="notification-icon"></span></li>
+                                            <li ng-if="!resource.isCameraOn"><span class="camera-icon"></span></li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                        <span class="valetName">{{resource.firstName}} {{resource.lastName}}</span>
+                                        <br>
+                                        <span>{{resource.deviceType}}</span>
+                                        <br>
+                                        <span>{{resource.propertyName}}</span>
+                                    </td>
+                                    <td>
+                                        <span class="battery-level pull-right" ng-class="{'battery-green': vm.batteryLevel(resource.batteryLevel, 100, 75), 'battery-yellow': vm.batteryLevel(resource.batteryLevel, 74, 25), 'battery-red': vm.batteryLevel(resource.batteryLevel, 24, 0)}">
+										{{resource.batteryLevel}}</span>
+                                        <div class="clearfix"></div>
+                                        <div class="circle pull-right" ng-class="vm.shiftStatus(resource)">						
+                                            <span ng-if="resource.isClockedIn"><div style="margin-top:13px;">Clocked <br/>In</div></span>
+                                            <span ng-if="!resource.isClockedIn"><div style="margin-top:5px;">Not <br/>Clocked In
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--Non scheduled Valets should not show -->
+                    <div id="unschedValetPanel">
+                        <!--<div id="unschedValetHeader"><h3>Not Scheduled</h3></div>-->
+                        <table class="table">
+                            <tbody id="UnSchedImages"></tbody>
+                            <tbody id="UnSchedValetsTbody">
+                                <tr ng-repeat="resource in vm.resources" ng-if="!resource.isScheduled">
+                                    <!--<td>
+                                        <img class="valetHeadshot" src="{{resource.resourcePhoto}}" ng-if="resource.resourcePhoto.length > 0">
+                                        <div class="circle" style="background:#808080; font-size: 20px; margin-left:0px;" ng-if="resource.resourcePhoto.length === 0">{{resource.firstName | limitTo:1}}{{resource.lastName | limitTo:1}}</div>
+                                        <span ng-class="{'apple-device': resource.deviceType === 'iPhone', 'android-device': resource.deviceType !== 'iPhone'}"></span>-->
+                                        <!-- <span ng-if="resource.isCameraOn" class='camera red cursor-pointer' onclick='changeStatus("+resource.resourceId+",\"camera\")' title='Change Camera Status'>C</span>
+                                        <span ng-if="resource.isGpsOn" class='gps red cursor-pointer' onclick='changeStatus("+resource.resourceId+",\"gps\")' title='Change GPS Status'>G</span>
+                                        <span ng-if="resource.isPushOn" class='push red cursor-pointer' onclick='changeStatus("+resource.resourceId+",\"push\")' title='Change Push Status'>P</span> -->
+                                    <!--</td>-->
+                                    <!--<td>
+                                        <ul class="device-icons">
+                                            <li ng-if="resource.isGpsOn"><span class="gps-icon"></span></li>
+                                            <li ng-if="resource.isPushOn"><span class="notification-icon"></span></li>
+                                            <li ng-if="resource.isCameraOn"><span class="camera-icon"></span></li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                        <span class="valetName">{{resource.firstName}} {{resource.lastName}}</span>
+                                        <br>
+                                        <span>{{resource.deviceType}}</span>
+                                        <br>
+                                        <span>{{resource.propertyName}}</span>
+                                    </td>
+                                    <td>
+                                        <span class="battery-level pull-right" ng-class="{'battery-green': resource.batteryLevel > 75, 'battery-yellow': resource.batteryLevel >= 25, 'battery-red':resource.batteryLevel < 25}">{{resource.batteryLevel}}</span>
+                                        <div class="clearfix"></div>
+                                        <div class="circle pull-right" ng-class="{'onTime':resource.isClockedIn, 'notCheckedIn':!resource.isClockedIn}">
+                                            <span ng-if="resource.isClockedIn">Clocked <br/>In</span>
+                                            <span ng-if="!resource.isClockedIn">Not <br/>Clocked In</span>
+                                        </div>
+                                    </td>-->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div style="position:relative;float:left;width:40%;height:100%" class="dashPanel">
+                    <div id="violationsPanel">
+                        <div id="violationsHeader"><h3>Incidents</h3></div>
+                        <div class="NoData" id="NoDataViol" ng-if="vm.incidents.length === 0">
+                            <p style="text-align:left;" class="NoData">No Incidents Submitted</p>
+                        </div>
+                        <div id="violationsTableWrapper">
+                            <table id="violationsTable">
+                                <tbody id="ViolationsTbody">
+                                    <tr ng-repeat="incident in vm.incidents">
+                                        <td>
+                                            <table class="violationTableTable">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="violationTableCell"><span class="violationType">{{incident.violationTypeName}}</span></td>
+                                                        <td><span class="violationSubmittedBy">{{incident.resourceName}}</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="violationTableCell"><span class="violationProperty">{{incident.propertyName}}:</span> <span class="violationLocation">Bldg: {{incident.locationName}}</span></td>
+                                                        <td><span class="violationStamp">{{incident.incidentDateTime | date: 'MM/dd/yyyy hh:mm a' }}</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <table align="right">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="violationTableCell">
+                                                                            <a href="{{photo.photoUrl}}" ng-repeat="photo in incident.photos">
+                                                                                <img class="violationThumb" src="{{photo.photoUrl}}">
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--<div id="mapPanel" class="dashPanel"></div>-->
+                </div>
+                <div style="position:relative;float:left;width:30%;height:100%" class="dashPanel">
+                    <div id="propertyHeader"><h3>Properties</h3></div>
+                    <div class="NoData" id="NoDataProp" ng-if="vm.properties.length === 0">
+                        <p style="text-align:left;" class="NoData">No Tasks Scheduled</p>
+                    </div>
+
+                    <ul class="list" ng-repeat="(key,value) in vm.properties | groupBy:'propertyName'">
+                        <li>
+                            <div class="list-title">
+                                <span class="first-col">{{key}}</span>
+                                <span class="last-col text-right">
+                                    {{vm.totalPercentage(value).propertyPercentage}}%
+                                </span>
+                            </div>
+                            <ul>
+                                <li ng-repeat="(key, value) in value">
+                                    <ul>
+                                        <li ng-repeat="(key, value) in value.services" ng-click="vm.showTasks($event)">
+                                            <p>
+                                                <span class="first-col">
+                                                    {{value.serviceName}}: {{value.startTime | date:'MM/dd/yyyy hh:mm a'}} - {{value.endTime | date:'MM/dd/yyyy hh:mm a'}}
+                                                </span>
+                                                <span class="last-col text-right">
+                                                    {{vm.totalTasks(value)}}
+                                                </span>
+                                            </p>
+                                            <ul ng-if="value.showTasks">
+                                                <li ng-repeat="(key, value) in value.tasks">
+                                                    <p>
+                                                        <span class="first-col">{{value.locationName}}: {{value.taskName}}</span>
+                                                        <span class="last-col text-right" ng-if="value.startEpoch !== 0 && value.endEpoch === 0">In Progress</span>
+                                                        <span class="last-col text-right" ng-if="value.endEpoch !== 0">Completed</span>
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Start Manager Pop Up -->
+
+            <div class="ui-widget-overlay ui-front" ng-if="vm.showManagerPopUp"></div>
+            <div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-draggable" tabindex="-1" role="dialog" aria-describedby="Dialog" aria-labelledby="ui-id-1" style="height: auto; width: 400px; top: 411px; left: calc(50% - 200px);" ng-if="vm.showManagerPopUp">
+                <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
+                    <span id="ui-id-1" class="ui-dialog-title">Valet Living</span>
+                </div>
+                <div id="Dialog" class="ui-dialog-content ui-widget-content" style="display: inline; width: auto; min-height: 0px; max-height: none; height: 293px;">
+                    <p id="DeleteMessage">Select a manager to view their dashboard.</p>
+                    <p><select name="managerSelect" id="managerSelect" ng-options="manager as manager.resourceName group by manager.managerName for manager in vm.managers" ng-model="vm.managerSelected" ng-change="vm.setManager()"></select></p>
+                    <div align="right" style="margin: 12px 25px 0 0;">
+                        <button type="button" name="DeleteOK" id="DeleteOK" class="btn blue" style="display: inline-block;" ng-click="vm.showManagerPopUp = false; vm.getDashboard(vm.managerSelected);" ng-disabled="vm.managerSelected.resourceId === ''">OK</button>
+                        <button class="btn red" ng-click="vm.goBack()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- End Manager Pop Up -->
+
+    </div>
+</div>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.5/angular-filter.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.4.0/moment-timezone.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    /*------------------------- New Code ----------------------------*/
+
+    'use strict';
+
+    function ivaletController(ivaletFactory, $interval){
+        var vm = this;
+
+		vm.shiftStatus = function(resource) {
+			var cssClass = 'notCheckedIn';
+			if (resource.isClockedIn) {
+    			if ((resource.scheduleStart + 3600) > resource.startEpoch) {
+    				cssClass = 'late';
+    			} else {
+    				cssClass = 'onTime';
+    			}
+			}
+			return cssClass;
+		}
+		
+        vm.showManagerPopUp = false;
+
+        vm.showManagerDropDown = false;
+
+		vm.batteryLevel = function(level, topRange, bottomRange) {
+			var retValue = 100;
+			if (level !== null) {
+				if (level.length > 0) {
+					retValue = level.replace('%', '');
+					if (!isNaN(retValue)) {				
+						retValue = parseInt(retValue);
+					}
+				}
+			}
+			
+			if (retValue > bottomRange && retValue <= topRange) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
+		vm.isAppleDevice = function(deviceType) {	
+			if (deviceType.indexOf('iPhone') !== -1 || deviceType.indexOf('iPad') !== -1) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
+        vm.refetch = function(){
+            if (vm.managerSelected !== undefined) {
+                vm.interval = $interval(function(){
+                    vm.getDashboard(vm.managerSelected);
+                }, 300000);
+            }else{
+                vm.interval = $interval(function(){
+                    vm.getDashboard();
+                }, 300000);
+            }
+        };
+
+        vm.getDashboard = function(data){
+		
+			$interval.cancel(vm.interval);
+			
+            ivaletFactory.getDashboardProperties(data, vm.lastPropHash).then(function(response){
+				if (response.data.Payload.hasNewData === undefined) {
+					
+					vm.properties = response.data.Payload;
+
+					vm.lastPropHash = response.data.PayloadHash;
+
+				} else {
+					if (response.data.Payload.hasNewData) {
+						ivaletFactory.getDashboardProperties(data, "").then(function(response){
+
+							vm.properties = response.data.Payload;
+
+							vm.lastPropHash = response.data.PayloadHash;
+
+						});
+					}
+				}
+            });
+			
+			ivaletFactory.getDashboardViolations(data, vm.lastInciHash).then(function(response){
+				if (response.data.Payload.hasNewData === undefined) {
+
+                    vm.incidents = response.data.Payload;
+
+                    vm.lastInciHash = response.data.PayloadHash;
+
+				} else {
+					if (response.data.Payload.hasNewData) {
+						ivaletFactory.getDashboardViolations(data, "").then(function(response){
+
+							vm.incidents = response.data.Payload;
+
+							vm.lastInciHash = response.data.PayloadHash;
+
+						});
+					}
+				}
+            });
+			
+
+			ivaletFactory.getDashboardValets(data, vm.lastResoHash).then(function(response){
+				if (response.data.Payload.hasNewData === undefined) {
+
+                    vm.resources = response.data.Payload;
+                    console.log(response.data.Payload);
+
+                    vm.lastResoHash = response.data.PayloadHash;
+
+				} else {
+					if (response.data.Payload.hasNewData) {
+						ivaletFactory.getDashboardValets(data, "").then(function(response){
+						
+							vm.resources = response.data.Payload;
+
+							vm.lastResoHash = response.data.PayloadHash;
+
+						});
+					}
+				}
+            });
+			
+			vm.refetch();
+        };
+
+        vm.showTasks = function(e){
+            var currentItem = angular.element(e.target).scope().value;
+
+            if (!currentItem.showTasks) {
+                currentItem.showTasks = true;
+            }else{
+                currentItem.showTasks = false;
+            }
+
+        };
+
+        vm.getManagers = function(manager){
+            ivaletFactory.getManagers(manager).then(function(response) {
+
+                vm.managers = response;
+
+                vm.managerSelected = vm.managers[0];
+
+            });
+        };
+
+        vm.goBack = function(){
+            vm.showManagerPopUp = false;
+            vm.managerSelected = vm.managers[1];
+            vm.getDashboard(vm.managerSelected);
+        };
+
+        vm.totalPercentage = function(data){
+
+            var percentages = {
+                totalTasks:0,
+                totalDone:0
+            };
+
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].services !== undefined) {
+                    for (var x = 0; x < data[i].services.length; x++) {
+                        if (data[i].services[x].tasks !== undefined) {
+
+                            percentages.totalTasks = percentages.totalTasks + data[i].services[x].tasks.length;
+
+                            for (var y = 0; y < data[i].services[x].tasks.length; y++) {
+                                //ADD IN: Check for ActualEnd as well if endEpoch isnt being used exculsively
+                                if (data[i].services[x].tasks[y].endEpoch !== 0 ) {
+                                    percentages.totalDone = percentages.totalDone + 1;
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+            }
+
+            percentages.propertyPercentage = percentages.totalTasks == 0 ? 0 : Math.floor(percentages.totalDone/percentages.totalTasks*100);
+            percentages.tasksPercentage = percentages.totalDone +'/'+ percentages.totalTasks;
+            
+            return percentages;
+        };
+
+        vm.totalTasks = function(data){
+            var tasks = {
+                completed:0,
+                total:0
+            };
+
+            if (data.tasks !== undefined) {
+                for (var i = 0; i < data.tasks.length; i++) {
+                    if (data.tasks[i].endEpoch !== 0) {
+                        tasks.completed = tasks.completed + 1;
+                    }
+                }
+
+                tasks.total = data.tasks.length;
+            }
+
+            return tasks.completed + '/' + tasks.total;
+        };
+
+        ivaletFactory.getUserRole().then(function(response){
+             if (response[0].roleName === 'Admin' || response[0].roleName === 'Regional Director' || response[0].roleName === 'Support') {
+                 vm.getManagers();
+                
+                vm.showManagerPopUp = true;
+
+                vm.showManagerDropDown = true;
+            }else{
+                vm.getDashboard();
+            }
+        });
+    }
+
+    function ivaletFactory($http, moment, $filter){
+
+        var ivaletFactory = {};
+
+        ivaletFactory.apiKey = '2824EE8D-E03B-422B-A42B-BA202DED2268';
+
+        ivaletFactory.getDashboardProperties = function(manager, lastPropHash){
+
+            var user = manager ? manager.resourceId : SystemUserID;
+
+            LoadMask(true);
+            return $http({
+                method: 'GET',
+                url: baseUrl + 'v2/manager/' + user + '/dashboard/properties',
+                headers: {
+                    'ApiKey': ivaletFactory.apiKey,
+					'Hash': lastPropHash
+                },
+                responseType: 'json'
+            }).then(function(response){
+
+                LoadMask(false);
+
+                return response;
+
+            });
+        };
+
+		ivaletFactory.getDashboardViolations = function(manager, lastInciHash){
+
+            var user = manager ? manager.resourceId : SystemUserID;
+
+            LoadMask(true);
+            return $http({
+                method: 'GET',
+                url: baseUrl + 'v2/manager/' + user + '/dashboard/violations',
+                headers: {
+                    'ApiKey': ivaletFactory.apiKey,
+					'Hash': lastInciHash
+                },
+                responseType: 'json'
+            }).then(function(response){
+
+                LoadMask(false);
+
+                return response;
+
+            });
+        };
+		
+		ivaletFactory.getDashboardValets = function(manager, lastResoHash){
+
+            var user = manager ? manager.resourceId : SystemUserID;
+            console.log(user);
+            LoadMask(true);
+            return $http({
+                method: 'GET',
+                url: baseUrl + 'v2/manager/' + user + '/dashboard/valets',
+                headers: {
+                    'ApiKey': ivaletFactory.apiKey,
+					'Hash': lastResoHash
+                },
+                responseType: 'json'
+            }).then(function(response){
+
+                LoadMask(false);
+
+                return response;
+
+            });
+        };
+		
+        ivaletFactory.getManagers = function(){
+
+            return $http({
+                method: 'GET',
+                url: baseUrl + 'v2/manager/' + SystemUserID + '/managers',
+                headers: {
+                    'ApiKey': ivaletFactory.apiKey
+                },
+                responseType: 'json'
+            }).then(function(response){
+
+                response.data.Payload.unshift({
+                    resourceId:'',
+                    resourceName:'Select a Manager',
+                    resourceTypeId:'Valet'
+                });
+
+                return response.data.Payload;
+
+            });
+        };
+
+        ivaletFactory.getUserRole = function(){
+            LoadMask(true);
+            return $http({
+                method: 'GET',
+                url: baseUrl + 'v2/user/' + SystemUserID + '/checkroles',
+                headers: {
+                    'ApiKey': ivaletFactory.apiKey
+                },
+                responseType: 'json'
+            }).then(function(response){
+                LoadMask(false);
+                return response.data.Payload;
+
+            });
+        };
+
+        return ivaletFactory;
+    }
+
+
+    ivaletController.$inject = ['ivaletFactory', '$interval'];
+
+    ivaletFactory.$inject = ['$http', 'moment', '$filter'];
+
+    angular
+        .module('ivalet', ['angular.filter'])
+        .controller('ivaletController', ivaletController)
+        .factory('ivaletFactory', ivaletFactory)
+        .constant('moment', moment);
+</script>
