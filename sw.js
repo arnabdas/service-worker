@@ -1,29 +1,15 @@
-var CACHE_NAME = 'sw-demo-cache-v1';
-var urlsToCache = [
-    './assets/bootstrap.min.css',
-    './assets/bootstrap.min.js'
-];
+console.log("SW Startup!");
 
-self.addEventListener('install', function (event) {
-    // Perform install steps
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(function (cache) {
-                console.log('Opened cache');
-                return cache.addAll(urlsToCache);
-            })
-    );
+// Install Service Worker
+self.addEventListener('install', function(event){
+    console.log('installed!');
 });
 
-self.addEventListener('fetch', function (event) {
-    event.respondWith(
-        caches.match(event.request)
-            .then(function (response) {
-                // Cache hit - return response
-                if (response) {
-                    return response;
-                }
-                return fetch(event.request);
-            })
-    );
+// Service Worker Active
+self.addEventListener('activate', function(event){
+    console.log('activated!');
+});
+
+self.addEventListener('message', function(event){
+    console.log("SW Received Message: " + event.data);
 });
