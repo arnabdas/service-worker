@@ -9,6 +9,7 @@ if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./sw.js').then(function (registration) {
             // Registration was successful
             console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            debugger;
         }, function (err) {
             // registration failed :(
             console.log('ServiceWorker registration failed: ', err);
@@ -19,16 +20,17 @@ if ('serviceWorker' in navigator) {
         // Let's see if you have a subscription already
         return serviceWorkerRegistration.pushManager.getSubscription();
     }).then(function (subscription) {
+        debugger;
         if (!subscription) {
             console.log('You do not have subscription');
         }
         // You have subscription.
         // Send data to service worker
-        setTimeout(function () {
+        navigator.serviceWorker.addEventListener('controllerchange', function () {
             navigator.serviceWorker.controller.postMessage({
                 message: 'Hello, World!!!'
             });
-        }, 3000);
+        });
     })
 }
 else
