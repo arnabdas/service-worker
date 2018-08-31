@@ -16,22 +16,12 @@ if ('serviceWorker' in navigator) {
         });
     });
 
-    navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
-        // Let's see if you have a subscription already
-        return serviceWorkerRegistration.pushManager.getSubscription();
-    }).then(function (subscription) {
-        debugger;
-        if (!subscription) {
-            console.log('You do not have subscription');
-        }
-        // You have subscription.
-        // Send data to service worker
-        navigator.serviceWorker.addEventListener('controllerchange', function () {
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+        if (navigator.serviceWorker.controller.postMessage)
             navigator.serviceWorker.controller.postMessage({
                 message: 'Hello, World!!!'
             });
-        });
-    })
+    });
 }
 else
     console.log('Service Worker is not supported by your browser!!!');
